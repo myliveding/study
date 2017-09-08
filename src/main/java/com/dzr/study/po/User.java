@@ -2,16 +2,34 @@ package com.dzr.study.po;
 
 import lombok.Data;
 
-/**
- * @author dingzr
- * @Description
- * @ClassName User
- * @since 2017/9/8 14:39
- */
+import java.util.Date;
 
 @Data
 public class User {
 
     private Integer id;
+
+    private String name;
+
+    private Integer phone;
+
+    private String email;
+
+    private String openid;
+
+    private String neckname;
+
+    private Integer sex;
+
+    private String headimgurl;
+
+    private Boolean subscribe;
+
+    private Date subscribeTime;
+
+    private String remark;
+
+    private Boolean delete;
+
 
 }
