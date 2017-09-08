@@ -1,6 +1,5 @@
 spring:
   datasource:
-    primary:
       #无需指定，除非系统无法自动识别
       driverClassName: com.mysql.jdbc.Driver
       jdbcurl: jdbc:mysql://localhost:3306/flight?useUnicode=true&characterEncoding=UTF-8

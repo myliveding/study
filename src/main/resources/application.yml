@@ -9,9 +9,13 @@ spring:
         store-type: none
 
 server:
-    port: 9090
+    port: 0
+
+swagger.enabled: true
+
+scheduling.enabled: true
 
 logging:
     level:
-        com.dzr.study: DEBUG
+        com.dzr.study: debug
     file: /home/wwwlogs/${spring.application.name}.log

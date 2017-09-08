@@ -1,7 +1,11 @@
 package com.dzr.study.mapper;
 
 import com.dzr.study.po.User;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
+@Mapper
+@Component
 public interface UserMapper {
 
     int deleteByPrimaryKey(Integer id);
