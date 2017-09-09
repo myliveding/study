@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dzr.study.mapper.UserMapper">
+
     <resultMap id="BaseResultMap" type="com.dzr.study.po.User">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
@@ -11,34 +12,38 @@
         <result column="sex" jdbcType="BIT" property="sex"/>
         <result column="headimgurl" jdbcType="VARCHAR" property="headimgurl"/>
         <result column="subscribe" jdbcType="BIT" property="subscribe"/>
-        <result column="subscribe_time" jdbcType="TIMESTAMP" property="subscribeTime"/>
+        <result column="subscribe_time" jdbcType="VARCHAR" property="subscribeTime"/>
         <result column="remark" jdbcType="VARCHAR" property="remark"/>
-        <result column="delete" jdbcType="BIT" property="delete"/>
+        <result column="is_delete" jdbcType="BIT" property="isDelete"/>
     </resultMap>
+
     <sql id="Base_Column_List">
     id, name, phone, email, openid, neckname, sex, headimgurl, subscribe, subscribe_time, 
-    remark, delete
+    remark, is_delete
   </sql>
+
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from user
         where id = #{id,jdbcType=INTEGER}
     </select>
+
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
+
     <insert id="insert" parameterType="com.dzr.study.po.User">
     insert into user (id, name, phone, 
       email, openid, neckname, 
       sex, headimgurl, subscribe, 
-      subscribe_time, remark, delete
+      subscribe_time, remark, is_delete
       )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=INTEGER}, 
       #{email,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, #{neckname,jdbcType=VARCHAR}, 
       #{sex,jdbcType=BIT}, #{headimgurl,jdbcType=VARCHAR}, #{subscribe,jdbcType=BIT}, 
-      #{subscribeTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, #{delete,jdbcType=BIT}
+      #{subscribeTime,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{isDelete,jdbcType=BIT}
       )
   </insert>
 
@@ -78,8 +83,8 @@
             <if test="remark != null">
                 remark,
             </if>
-            <if test="delete != null">
-                delete,
+            <if test="isDelete != null">
+                is_delete,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -111,13 +116,13 @@
                 #{subscribe,jdbcType=BIT},
             </if>
             <if test="subscribeTime != null">
-                #{subscribeTime,jdbcType=TIMESTAMP},
+                #{subscribeTime,jdbcType=VARCHAR},
             </if>
             <if test="remark != null">
                 #{remark,jdbcType=VARCHAR},
             </if>
-            <if test="delete != null">
-                #{delete,jdbcType=BIT},
+            <if test="isDelete != null">
+                #{isDelete,jdbcType=BIT},
             </if>
         </trim>
     </insert>
@@ -149,13 +154,13 @@
                 subscribe = #{subscribe,jdbcType=BIT},
             </if>
             <if test="subscribeTime != null">
-                subscribe_time = #{subscribeTime,jdbcType=TIMESTAMP},
+                subscribe_time = #{subscribeTime,jdbcType=VARCHAR},
             </if>
             <if test="remark != null">
                 remark = #{remark,jdbcType=VARCHAR},
             </if>
-            <if test="delete != null">
-                delete = #{delete,jdbcType=BIT},
+            <if test="isDelete != null">
+                is_delete = #{isDelete,jdbcType=BIT},
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
@@ -170,9 +175,16 @@
       sex = #{sex,jdbcType=BIT},
       headimgurl = #{headimgurl,jdbcType=VARCHAR},
       subscribe = #{subscribe,jdbcType=BIT},
-      subscribe_time = #{subscribeTime,jdbcType=TIMESTAMP},
+      subscribe_time = #{subscribeTime,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},
-      delete = #{delete,jdbcType=BIT}
+      is_delete = #{isDelete,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+    <select id="findUserList" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user ORDER BY id;
+    </select>
+
 </mapper>

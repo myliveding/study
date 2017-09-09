@@ -10,12 +10,12 @@
         <result column="remark" jdbcType="VARCHAR" property="remark"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
-        <result column="delete" jdbcType="BIT" property="delete"/>
+        <result column="is_delete" jdbcType="BIT" property="isDelete"/>
     </resultMap>
 
     <sql id="Base_Column_List">
     app_id, app_secret, name, access_token, jsapi_ticket, remark, create_time, update_time, 
-    delete
+    is_delete
   </sql>
 
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -33,11 +33,11 @@
     <insert id="insert" parameterType="com.dzr.study.po.Wechat">
     insert into wechat (app_id, app_secret, name, 
       access_token, jsapi_ticket, remark, 
-      create_time, update_time, delete
+      create_time, update_time, is_delete
       )
     values (#{appId,jdbcType=VARCHAR}, #{appSecret,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{accessToken,jdbcType=VARCHAR}, #{jsapiTicket,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{delete,jdbcType=BIT}
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIT}
       )
   </insert>
 
@@ -68,8 +68,8 @@
             <if test="updateTime != null">
                 update_time,
             </if>
-            <if test="delete != null">
-                delete,
+            <if test="isDelete != null">
+                is_delete,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -97,8 +97,8 @@
             <if test="updateTime != null">
                 #{updateTime,jdbcType=TIMESTAMP},
             </if>
-            <if test="delete != null">
-                #{delete,jdbcType=BIT},
+            <if test="isDelete != null">
+                #{isDelete,jdbcType=BIT},
             </if>
         </trim>
     </insert>
@@ -126,8 +126,8 @@
             <if test="updateTime != null">
                 update_time = #{updateTime,jdbcType=TIMESTAMP},
             </if>
-            <if test="delete != null">
-                delete = #{delete,jdbcType=BIT},
+            <if test="isDelete != null">
+                is_delete = #{isDelete,jdbcType=BIT},
             </if>
         </set>
         where app_id = #{appId,jdbcType=VARCHAR}
@@ -141,7 +141,7 @@
       remark = #{remark,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      delete = #{delete,jdbcType=BIT}
+      is_delete = #{isDelete,jdbcType=BIT}
     where app_id = #{appId,jdbcType=VARCHAR}
   </update>
 </mapper>

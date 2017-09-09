@@ -25,11 +25,11 @@ public class User {
 
     private Boolean subscribe;
 
-    private Date subscribeTime;
+    private String subscribeTime;
 
     private String remark;
 
-    private Boolean delete;
+    private Boolean isDelete;
 
 
 }

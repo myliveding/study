@@ -4,6 +4,9 @@ import com.dzr.study.po.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.Map;
+
 @Mapper
 @Component
 public interface UserMapper {
@@ -19,4 +22,7 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    List<User> findUserList(Map<String, Object> map);
+
 }

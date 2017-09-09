@@ -19,10 +19,10 @@ public class Wechat {
 
     private String remark;
 
-    private Date createTime;
+    private String createTime;
 
-    private Date updateTime;
+    private String updateTime;
 
-    private Boolean delete;
+    private Boolean isDelete;
 
 }
