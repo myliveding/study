@@ -3,10 +3,7 @@ Java Study Something
 
 # 项目
 
-后台
-页面
-多数据源
-单数据源
+后台 -- thymeleaf页面
 动态数据源
 
 
