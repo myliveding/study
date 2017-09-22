@@ -19,7 +19,6 @@ public class ApiException extends RuntimeException {
     }
 
     public ApiException(Integer errorCode) {
-//        super(message);
         this.errcode = errorCode;
     }
 

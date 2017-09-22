@@ -1,4 +1,4 @@
-package com.dzr.study.test;
+package com.dzr.study.util;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -94,7 +94,6 @@ public class ImagesUtil {
 
     /**
      * 将double类型的数据转换为int，四舍五入原则
-     *
      * @param sourceDouble
      * @return
      */
@@ -112,7 +111,7 @@ public class ImagesUtil {
      * @return 一个集合，第一个元素为宽度，第二个元素为高度
      */
     private static ArrayList<Integer> getAutoWidthAndHeight(BufferedImage bufferedImage, int width_scale, int height_scale) {
-        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        ArrayList<Integer> arrayList = new ArrayList<>();
         int width = bufferedImage.getWidth();
         int height = bufferedImage.getHeight();
         double scale_w = getDot2Decimal(width_scale, width);
