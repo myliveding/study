@@ -1,5 +1,7 @@
 package com.dzr.study.test;
 
+import com.dzr.study.test.po.Paper;
+
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;

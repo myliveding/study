@@ -1,15 +1,24 @@
-package com.dzr.study.test;
+package com.dzr.study.test.instance;
 
 /**
  * @author dingzr
- * @Description
+ * @Description java 中的instanceof 运算符是用来在运行时指出对象是否是特定类的一个实例。
+ * instanceof通过返回一个布尔值来指出，这个对象是否是这个特定类或者是它的子类的一个实例。
  * @ClassName InstanceofTest
  * @since 2017/9/15 14:08
  */
 public class InstanceofTest {
 
+    /**
+     * 子类是父类得实例，但是父类不是子类得实例
+     * null 比较结果都为假
+     *
+     * @param args
+     */
+
     public static void main(String[] args) {
 
+        //B是A得实现类
         //类C是类B的子类，对象和他的子类进行instanceof判断为false
         A a = null;
         B b = null;

@@ -1,4 +1,4 @@
-package com.dzr.study.test;
+package com.dzr.study.test.po;
 
 import lombok.Data;
 
