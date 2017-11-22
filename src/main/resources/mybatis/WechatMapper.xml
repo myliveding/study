@@ -8,9 +8,9 @@
         <result column="access_token" jdbcType="VARCHAR" property="accessToken"/>
         <result column="jsapi_ticket" jdbcType="VARCHAR" property="jsapiTicket"/>
         <result column="remark" jdbcType="VARCHAR" property="remark"/>
-        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
-        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
-        <result column="is_delete" jdbcType="BIT" property="isDelete"/>
+        <result column="create_time" jdbcType="Integer" property="createTime"/>
+        <result column="update_time" jdbcType="Integer" property="updateTime"/>
+        <result column="is_delete" jdbcType="Integer" property="isDelete"/>
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -31,15 +31,15 @@
   </delete>
 
     <insert id="insert" parameterType="com.dzr.study.po.Wechat">
-    insert into wechat (app_id, app_secret, name, 
-      access_token, jsapi_ticket, remark, 
-      create_time, update_time, is_delete
-      )
-    values (#{appId,jdbcType=VARCHAR}, #{appSecret,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{accessToken,jdbcType=VARCHAR}, #{jsapiTicket,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIT}
-      )
-  </insert>
+        insert into wechat (app_id, app_secret, name,
+        access_token, jsapi_ticket, remark,
+        create_time, update_time, is_delete
+        )
+        values (#{appId,jdbcType=VARCHAR}, #{appSecret,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+        #{accessToken,jdbcType=VARCHAR}, #{jsapiTicket,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR},
+        #{createTime,jdbcType=Integer}, #{updateTime,jdbcType=Integer}, #{isDelete,jdbcType=Integer}
+        )
+    </insert>
 
     <insert id="insertSelective" parameterType="com.dzr.study.po.Wechat">
         insert into wechat
@@ -92,13 +92,13 @@
                 #{remark,jdbcType=VARCHAR},
             </if>
             <if test="createTime != null">
-                #{createTime,jdbcType=TIMESTAMP},
+                #{createTime,jdbcType=Integer},
             </if>
             <if test="updateTime != null">
-                #{updateTime,jdbcType=TIMESTAMP},
+                #{updateTime,jdbcType=Integer},
             </if>
             <if test="isDelete != null">
-                #{isDelete,jdbcType=BIT},
+                #{isDelete,jdbcType=Integer},
             </if>
         </trim>
     </insert>
@@ -121,27 +121,27 @@
                 remark = #{remark,jdbcType=VARCHAR},
             </if>
             <if test="createTime != null">
-                create_time = #{createTime,jdbcType=TIMESTAMP},
+                create_time = #{createTime,jdbcType=Integer},
             </if>
             <if test="updateTime != null">
-                update_time = #{updateTime,jdbcType=TIMESTAMP},
+                update_time = #{updateTime,jdbcType=Integer},
             </if>
             <if test="isDelete != null">
-                is_delete = #{isDelete,jdbcType=BIT},
+                is_delete = #{isDelete,jdbcType=Integer},
             </if>
         </set>
         where app_id = #{appId,jdbcType=VARCHAR}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.dzr.study.po.Wechat">
-    update wechat
-    set app_secret = #{appSecret,jdbcType=VARCHAR},
-      name = #{name,jdbcType=VARCHAR},
-      access_token = #{accessToken,jdbcType=VARCHAR},
-      jsapi_ticket = #{jsapiTicket,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      is_delete = #{isDelete,jdbcType=BIT}
-    where app_id = #{appId,jdbcType=VARCHAR}
-  </update>
+        update wechat
+        set app_secret = #{appSecret,jdbcType=VARCHAR},
+        name = #{name,jdbcType=VARCHAR},
+        access_token = #{accessToken,jdbcType=VARCHAR},
+        jsapi_ticket = #{jsapiTicket,jdbcType=VARCHAR},
+        remark = #{remark,jdbcType=VARCHAR},
+        create_time = #{createTime,jdbcType=Integer},
+        update_time = #{updateTime,jdbcType=Integer},
+        is_delete = #{isDelete,jdbcType=Integer}
+        where app_id = #{appId,jdbcType=VARCHAR}
+    </update>
 </mapper>

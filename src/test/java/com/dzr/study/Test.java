@@ -19,6 +19,9 @@ public class Test {
         System.err.println(matcher.matches());
 
         System.err.println("kk_k5=555".matches("[A-Za-z0-9_]+"));
+
+        System.err.println("4     4 44  5  55   ".trim().replace(" ", ""));
+
     }
 
 }

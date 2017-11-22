@@ -19,9 +19,9 @@ public class Wechat {
 
     private String remark;
 
-    private String createTime;
+    private Integer createTime;
 
-    private String updateTime;
+    private Integer updateTime;
 
     private Boolean isDelete;
 

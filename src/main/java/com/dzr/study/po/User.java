@@ -25,7 +25,7 @@ public class User {
 
     private Boolean subscribe;
 
-    private String subscribeTime;
+    private Integer subscribeTime;
 
     private String remark;
 

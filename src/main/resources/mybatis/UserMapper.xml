@@ -4,17 +4,17 @@
 
     <resultMap id="BaseResultMap" type="com.dzr.study.po.User">
         <id column="id" jdbcType="INTEGER" property="id"/>
-        <result column="name" jdbcType="VARCHAR" property="name"/>
-        <result column="phone" jdbcType="INTEGER" property="phone"/>
-        <result column="email" jdbcType="VARCHAR" property="email"/>
-        <result column="openid" jdbcType="VARCHAR" property="openid"/>
-        <result column="neckname" jdbcType="VARCHAR" property="neckname"/>
-        <result column="sex" jdbcType="BIT" property="sex"/>
-        <result column="headimgurl" jdbcType="VARCHAR" property="headimgurl"/>
-        <result column="subscribe" jdbcType="BIT" property="subscribe"/>
-        <result column="subscribe_time" jdbcType="VARCHAR" property="subscribeTime"/>
-        <result column="remark" jdbcType="VARCHAR" property="remark"/>
-        <result column="is_delete" jdbcType="BIT" property="isDelete"/>
+        <result column="name" property="name"/>
+        <result column="phone" property="phone"/>
+        <result column="email" property="email"/>
+        <result column="openid" property="openid"/>
+        <result column="neckname" property="neckname"/>
+        <result column="sex" property="sex"/>
+        <result column="headimgurl" property="headimgurl"/>
+        <result column="subscribe" property="subscribe"/>
+        <result column="subscribe_time" property="subscribeTime"/>
+        <result column="remark" property="remark"/>
+        <result column="is_delete" property="isDelete"/>
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -41,9 +41,9 @@
       subscribe_time, remark, is_delete
       )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=INTEGER}, 
-      #{email,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, #{neckname,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=BIT}, #{headimgurl,jdbcType=VARCHAR}, #{subscribe,jdbcType=BIT}, 
-      #{subscribeTime,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{isDelete,jdbcType=BIT}
+      #{email,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, #{neckname,jdbcType=VARCHAR},
+        #{sex,jdbcType=Integer}, #{headimgurl,jdbcType=VARCHAR}, #{subscribe,jdbcType=Integer},
+        #{subscribeTime,jdbcType=Integer}, #{remark,jdbcType=VARCHAR}, #{isDelete,jdbcType=Integer}
       )
   </insert>
 
@@ -107,16 +107,16 @@
                 #{neckname,jdbcType=VARCHAR},
             </if>
             <if test="sex != null">
-                #{sex,jdbcType=BIT},
+                #{sex,jdbcType=Integer},
             </if>
             <if test="headimgurl != null">
                 #{headimgurl,jdbcType=VARCHAR},
             </if>
             <if test="subscribe != null">
-                #{subscribe,jdbcType=BIT},
+                #{subscribe,jdbcType=Integer},
             </if>
             <if test="subscribeTime != null">
-                #{subscribeTime,jdbcType=VARCHAR},
+                #{subscribeTime,jdbcType=Integer},
             </if>
             <if test="remark != null">
                 #{remark,jdbcType=VARCHAR},
@@ -145,16 +145,16 @@
                 neckname = #{neckname,jdbcType=VARCHAR},
             </if>
             <if test="sex != null">
-                sex = #{sex,jdbcType=BIT},
+                sex = #{sex,jdbcType=Integer},
             </if>
             <if test="headimgurl != null">
                 headimgurl = #{headimgurl,jdbcType=VARCHAR},
             </if>
             <if test="subscribe != null">
-                subscribe = #{subscribe,jdbcType=BIT},
+                subscribe = #{subscribe,jdbcType=Integer},
             </if>
             <if test="subscribeTime != null">
-                subscribe_time = #{subscribeTime,jdbcType=VARCHAR},
+                subscribe_time = #{subscribeTime,jdbcType=Integer},
             </if>
             <if test="remark != null">
                 remark = #{remark,jdbcType=VARCHAR},
@@ -172,10 +172,10 @@
       email = #{email,jdbcType=VARCHAR},
       openid = #{openid,jdbcType=VARCHAR},
       neckname = #{neckname,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=BIT},
+        sex = #{sex,jdbcType=Integer},
       headimgurl = #{headimgurl,jdbcType=VARCHAR},
-      subscribe = #{subscribe,jdbcType=BIT},
-      subscribe_time = #{subscribeTime,jdbcType=VARCHAR},
+        subscribe = #{subscribe,jdbcType=Integer},
+        subscribe_time = #{subscribeTime,jdbcType=Integer},
       remark = #{remark,jdbcType=VARCHAR},
       is_delete = #{isDelete,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}

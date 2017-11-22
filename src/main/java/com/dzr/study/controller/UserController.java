@@ -36,7 +36,7 @@ public class UserController extends BaseController{
     @ApiOperation(value = "获取用户数据信息", httpMethod = "GET", response = Map.class,
             notes = "获取用户数据信息", produces = "application/json; charset=utf-8")
     public Map<String, Object> findUserInfo(
-            @ApiParam(value = "用户ID") @RequestParam(value = "id", required = true) Integer id){
+            @ApiParam(value = "用户ID") @RequestParam(value = "id") Integer id) {
 
         return successResult(userService.findUserByPrimaryKey(id));
     }
