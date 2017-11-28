@@ -1,10 +1,22 @@
-# study
+# Study
 Java Study Something
 
 # 项目
+纯后台接口项目--简介如下：
 
-后台 -- thymeleaf页面
+#### 技术
 动态数据源
+redis
+mq
+excel导入
+
+
+##### 项目种类
+动态数据源一个
+纯后台一个配置单数据源--swagger2
+jsp一个加微信分享支付环境得代码
+html一个加微信分享支付环境得代码
+其他得就是各个项目得了
 
 
 # mybatis的逆向工程

@@ -8,9 +8,9 @@
         <result column="access_token" jdbcType="VARCHAR" property="accessToken"/>
         <result column="jsapi_ticket" jdbcType="VARCHAR" property="jsapiTicket"/>
         <result column="remark" jdbcType="VARCHAR" property="remark"/>
-        <result column="create_time" jdbcType="Integer" property="createTime"/>
-        <result column="update_time" jdbcType="Integer" property="updateTime"/>
-        <result column="is_delete" jdbcType="Integer" property="isDelete"/>
+        <result column="create_time" jdbcType="INTEGER" property="createTime"/>
+        <result column="update_time" jdbcType="INTEGER" property="updateTime"/>
+        <result column="is_delete" jdbcType="INTEGER" property="isDelete"/>
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -37,7 +37,7 @@
         )
         values (#{appId,jdbcType=VARCHAR}, #{appSecret,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
         #{accessToken,jdbcType=VARCHAR}, #{jsapiTicket,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR},
-        #{createTime,jdbcType=Integer}, #{updateTime,jdbcType=Integer}, #{isDelete,jdbcType=Integer}
+        #{createTime,jdbcType=INTEGER}, #{updateTime,jdbcType=INTEGER}, #{isDelete,jdbcType=INTEGER}
         )
     </insert>
 
@@ -92,13 +92,13 @@
                 #{remark,jdbcType=VARCHAR},
             </if>
             <if test="createTime != null">
-                #{createTime,jdbcType=Integer},
+                #{createTime,jdbcType=INTEGER},
             </if>
             <if test="updateTime != null">
-                #{updateTime,jdbcType=Integer},
+                #{updateTime,jdbcType=INTEGER},
             </if>
             <if test="isDelete != null">
-                #{isDelete,jdbcType=Integer},
+                #{isDelete,jdbcType=INTEGER},
             </if>
         </trim>
     </insert>
@@ -121,13 +121,13 @@
                 remark = #{remark,jdbcType=VARCHAR},
             </if>
             <if test="createTime != null">
-                create_time = #{createTime,jdbcType=Integer},
+                create_time = #{createTime,jdbcType=INTEGER},
             </if>
             <if test="updateTime != null">
-                update_time = #{updateTime,jdbcType=Integer},
+                update_time = #{updateTime,jdbcType=INTEGER},
             </if>
             <if test="isDelete != null">
-                is_delete = #{isDelete,jdbcType=Integer},
+                is_delete = #{isDelete,jdbcType=INTEGER},
             </if>
         </set>
         where app_id = #{appId,jdbcType=VARCHAR}
@@ -139,9 +139,9 @@
         access_token = #{accessToken,jdbcType=VARCHAR},
         jsapi_ticket = #{jsapiTicket,jdbcType=VARCHAR},
         remark = #{remark,jdbcType=VARCHAR},
-        create_time = #{createTime,jdbcType=Integer},
-        update_time = #{updateTime,jdbcType=Integer},
-        is_delete = #{isDelete,jdbcType=Integer}
+        create_time = #{createTime,jdbcType=INTEGER},
+        update_time = #{updateTime,jdbcType=INTEGER},
+        is_delete = #{isDelete,jdbcType=INTEGER}
         where app_id = #{appId,jdbcType=VARCHAR}
     </update>
 </mapper>
