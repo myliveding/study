@@ -6,17 +6,17 @@ Java Study Something
 
 #### 技术
 动态数据源
-redis
+redis,jpa
 mq
 excel导入
-
+分布式任务调度
 
 ##### 项目种类
-动态数据源一个
-纯后台一个配置单数据源--swagger2
-jsp一个加微信分享支付环境得代码
-html一个加微信分享支付环境得代码
-其他得就是各个项目得了
+动态数据源一个--DynamicDataSource
+纯后台一个配置单数据源swagger2--study
+jsp一个加微信分享支付环境得代码--normal_web
+html一个加微信分享支付环境得代码--thymeleaf
+其他各个项目都基于每个master上来进行开发
 
 
 # mybatis的逆向工程
