@@ -7,5 +7,3 @@ mvnw.cmd
 
 .mvn/
 target/
-
-application*.yml
