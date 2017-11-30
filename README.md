@@ -1,8 +1,17 @@
 # Study
 Java Study Something
 
-# 项目
-纯后台接口项目--简介如下：
+# 项目说明
+纯后台接口项目，包含一些相关得学习内容；
+
+主要项目分类：
+动态数据源切换项目--DynamicDataSource
+纯后台＋配置单数据源swagger2--study
+jspweb＋微信分享支付--japweb
+thymeleaf引擎+微信分享支付--thymeleaf
+其他项目：
+
+其他各个项目都基于每个master上来进行开发
 
 #### 技术
 动态数据源
@@ -10,13 +19,6 @@ redis,jpa
 mq
 excel导入
 分布式任务调度
-
-##### 项目种类
-动态数据源一个--DynamicDataSource
-纯后台一个配置单数据源swagger2--study
-jsp一个加微信分享支付环境得代码--normal_web
-html一个加微信分享支付环境得代码--thymeleaf
-其他各个项目都基于每个master上来进行开发
 
 
 # mybatis的逆向工程
