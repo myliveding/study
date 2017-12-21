@@ -1,10 +1,13 @@
 package com.dzr.study.test;
 
 import com.dzr.study.test.po.Paper;
+import com.dzr.study.test.po.Waste;
 
 import java.util.*;
 import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
@@ -92,6 +95,33 @@ public class SteamTest {
         System.err.println(a.isPresent());
     }
 
+    public void streamGenerate() {
+
+        Random seed = new Random();
+        Supplier<Integer> random = seed::nextInt;
+        Stream.generate(random).limit(10).forEach(System.out::println);
+        //Another way
+        IntStream.generate(() -> (int) (System.nanoTime() % 100)).
+                limit(10).forEach(System.out::println);
+
+//        Stream.generate(new WasteSupplier()).limit(10).
+//                forEach(p -> System.out.println(p.getName() + ", " + p.getAge()));
+
+
+        Stream.iterate(0, n -> n + 3).limit(10).forEach(System.err::println);
+
+
+    }
+
+//    public class WasteSupplier implements Supplier<Waste> {
+//        private int index = 0;
+//        private Random random = new Random();
+//
+//        @Override
+//        public Waste get() {
+//            return new Waste(index++, "StormTestUser" + index, random.nextInt(100));
+//        }
+//    }
 
     public static void main(String[] args) {
         //map 的怎么转成steam ？
