@@ -124,9 +124,11 @@ public class SteamTest {
 //    }
 
     public static void main(String[] args) {
-        //map 的怎么转成steam ？
-//        doubleSteamTest();
-        compare();
+        List<Integer> list = new ArrayList<>();
+        list.add(111);
+        list.add(222);
+        System.err.println(list.toString());
+        List<String> aa = list.stream().map(String::valueOf).collect(Collectors.toList());
     }
 
 }
