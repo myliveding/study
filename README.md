@@ -4,7 +4,7 @@
 #### 主要项目分类：
 动态数据源切换项目--DynamicDataSource
 纯后台＋配置单数据源swagger2--study
-jspweb＋微信分享支付--japweb
+jspweb＋微信分享支付--jspweb
 thymeleaf引擎+微信分享支付--thymeleaf
 
 #### 其他项目：

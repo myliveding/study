@@ -1,6 +1,6 @@
 package com.dzr.study.test;
 
-import com.dzr.study.test.po.Paper;
+import com.dzr.study.po.Paper;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
