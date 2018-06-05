@@ -1,7 +1,12 @@
 package com.dzr.study.util;
 
+import com.dzr.study.po.User;
+import net.sf.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Description
@@ -20,25 +25,21 @@ public class DataUtils {
     }
 
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>();
-        list.add(201712);
-        list.add(201801);
-        list.add(201905);
+        Map<String, Object> map = new HashMap<>();
+        User user = new User();
+        user.setName("sssss");
+        map.put("orderInfo", user);
 
-        for (int i = 0; i < list.size(); i++) {
-            if (i > 0) {
-                int maxYear = Integer.parseInt(list.get(i).toString().substring(0, 4));
-                int maxMonth = Integer.parseInt(list.get(i).toString().substring(4, 6));
-                int minYear = Integer.parseInt(list.get(i - 1).toString().substring(0, 4));
-                int minMonth = Integer.parseInt(list.get(i - 1).toString().substring(4, 6));
-                System.err.println(minYear + "--" + minMonth + "--" + maxYear + "--" + maxMonth);
-                if ((maxYear == minYear && maxMonth - minMonth != 1) || maxYear - minYear > 1
-                        || (maxYear - minYear == 1 && (maxMonth != 1 || minMonth != 12))) {
-                    System.err.println(true);
-                }
-            }
-        }
-
+        JSONObject partnerInfo = new JSONObject();
+        partnerInfo.put("partnerId", "dddd-ff");
+        JSONObject userInfo = new JSONObject();
+        userInfo.put("openId", "111111");
+        userInfo.put("realName", "红枫湖");
+        JSONObject basicInfo = new JSONObject();
+        basicInfo.put("userInfo", userInfo);
+        basicInfo.put("partnerInfo", partnerInfo);
+        map.put("basicInfo", basicInfo);
+        System.err.println(map.toString());
     }
 
 }
