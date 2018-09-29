@@ -1,14 +1,11 @@
 package com.dzr.study.framework.mybatis;
 
+import com.dzr.study.po.Waste;
 import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Field;
 
-/**
- * 反射工具
- *
- * @author zhangsheng
- */
+
 @Slf4j
 public class ReflectHelper {
     /**
@@ -136,4 +133,22 @@ public class ReflectHelper {
         }
         return false;
     }
+
+    public static void main(String[] args) throws IllegalAccessException {
+        Waste waste = new Waste();
+        waste.setId("5");
+        waste.setName("排骨汤");
+
+        Field[] fields = waste.getClass().getDeclaredFields();
+        for (Field f : fields) {
+            f.setAccessible(true);
+            f.set(waste, "ddd");
+            System.out.println(f.isAccessible());
+            //f.setAccessible(true); //AccessibleTest类中的成员变量为private,故必须进行此操作
+            System.out.println(f.get(waste)); //获取当前对象中当前Field的value
+
+
+        }
+    }
+
 }

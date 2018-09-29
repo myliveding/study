@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Data
 public class Waste {
-    private Integer id;
+    private String id;
     private String name;
-    private Integer age;
+    private String age;
 }

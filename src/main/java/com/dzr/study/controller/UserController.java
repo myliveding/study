@@ -2,7 +2,6 @@ package com.dzr.study.controller;
 
 import com.dzr.study.framework.BaseController;
 import com.dzr.study.framework.mybatis.PageView;
-import com.dzr.study.po.User;
 import com.dzr.study.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -12,26 +11,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-/**
- * @Description
- * @FileName UserController
- * @Author dingzr
- * @CreateTime 2017/9/9 23:18 九月
- */
-
 @RestController
 @RequestMapping("user")
 @Api(value = "UserController", tags = "user", description = "用户模块")
 public class UserController extends BaseController{
 
-    @Autowired
-    UserService userService;
+    private final UserService userService;
 
-    /**
-     * @Title 获取政策包设置第二步的页面展示数据
-     * @param id
-     * @return
-     */
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
     @RequestMapping(value = "findUserInfo" ,method = RequestMethod.GET)
     @ApiOperation(value = "获取用户数据信息", httpMethod = "GET", response = Map.class,
             notes = "获取用户数据信息", produces = "application/json; charset=utf-8")
@@ -54,5 +45,4 @@ public class UserController extends BaseController{
         }
         return successResult(pageView.getRowCount(), pageView);
     }
-
 }

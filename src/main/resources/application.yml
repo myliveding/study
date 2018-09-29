@@ -13,7 +13,7 @@ server:
 
 swagger.enabled: true
 
-scheduling.enabled: true
+scheduling.enabled: false
 
 logging:
     level:
