@@ -23,13 +23,15 @@ import java.util.Map;
 @Transactional
 public class UserServiceImpl implements UserService {
 
+    private final UserMapper userMapper;
+
     @Autowired
-    UserMapper userMapper;
+    public UserServiceImpl(UserMapper userMapper) {
+        this.userMapper = userMapper;
+    }
 
     /**
      * 获取用户信息
-     * @param id
-     * @return
      */
     @Override
     public User findUserByPrimaryKey(Integer id){
@@ -41,7 +43,6 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 查询用户列表
-     * @return
      */
     @Override
     public PageView findUserList(PageView pageView){
