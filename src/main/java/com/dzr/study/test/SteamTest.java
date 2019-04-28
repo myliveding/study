@@ -1,6 +1,8 @@
 package com.dzr.study.test;
 
 import com.dzr.study.po.Paper;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import java.util.*;
 import java.util.function.Function;
@@ -122,12 +124,34 @@ public class SteamTest {
 //        }
 //    }
 
+    private static final Set<Integer> SPECIAL_WORK_TIME = Stream.of(8,9,10,0).collect(Collectors.toSet());
+
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>();
-        list.add(111);
-        list.add(222);
-        System.err.println(list.toString());
-        List<String> aa = list.stream().map(String::valueOf).collect(Collectors.toList());
+
+        List<Paper> list = new ArrayList<>();
+        Paper user = new Paper();
+        user.setId(2);
+        user.setAge(2);
+        user.setAddress("addres" + 2);
+        list.add(user);
+
+        Paper user2 = new Paper();
+        user2.setId(4);
+        user2.setAge(4);
+        user2.setAddress("addres" + 4);
+        list.add(user2);
+
+        Paper user3 = new Paper();
+        user3.setId(1);
+        user3.setAge(1);
+        user3.setAddress("addres" + 1);
+        list.add(user3);
+
+        list.forEach(t -> System.err.println(t.getAge()));
+        list.sort(Comparator.comparing(Paper::getAge));
+        list.forEach(t -> System.err.println("new   " + t.getAge()));
+        System.err.println(JSONArray.fromObject(list).toString());
+
     }
 
 }

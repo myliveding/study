@@ -2,9 +2,11 @@ package com.dzr.study.service.impl;
 
 import com.dzr.study.service.RedisExpiredService;
 import org.apache.commons.collections.CollectionUtils;
+import org.redisson.api.RedissonClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
@@ -95,5 +97,10 @@ public class RedisExpiredServiceImpl implements RedisExpiredService {
         return null == valueOperations.get(key) ? "" : valueOperations.get(key).toString();
     }
 
+    private RedissonClient redissonClient;
+
+    private void lock(){
+
+    }
 
 }
