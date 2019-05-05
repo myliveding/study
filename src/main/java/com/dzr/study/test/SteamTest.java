@@ -1,6 +1,7 @@
 package com.dzr.study.test;
 
 import com.dzr.study.po.Paper;
+import com.dzr.study.po.WorkHours;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -128,29 +129,26 @@ public class SteamTest {
 
     public static void main(String[] args) {
 
-        List<Paper> list = new ArrayList<>();
-        Paper user = new Paper();
-        user.setId(2);
-        user.setAge(2);
-        user.setAddress("addres" + 2);
-        list.add(user);
+        List<WorkHours> list = new ArrayList<>();
 
-        Paper user2 = new Paper();
-        user2.setId(4);
-        user2.setAge(4);
-        user2.setAddress("addres" + 4);
+
+        WorkHours user2 = new WorkHours();
+        user2.setStartTime(1555567200);
+        user2.setEndTime(1555603200 );
         list.add(user2);
 
-        Paper user3 = new Paper();
-        user3.setId(1);
-        user3.setAge(1);
-        user3.setAddress("addres" + 1);
-        list.add(user3);
+        WorkHours user = new WorkHours();
+        user.setStartTime(1555545600);
+        user.setEndTime(1555561800 );
+        list.add(user);
 
-        list.forEach(t -> System.err.println(t.getAge()));
-        list.sort(Comparator.comparing(Paper::getAge));
-        list.forEach(t -> System.err.println("new   " + t.getAge()));
+        list.forEach(t -> System.err.println(t.getStartTime()));
+        list.sort(Comparator.comparing(WorkHours::getStartTime));
+        list.forEach(t -> System.err.println("new   " + t.getStartTime()));
         System.err.println(JSONArray.fromObject(list).toString());
+
+
+
 
     }
 
