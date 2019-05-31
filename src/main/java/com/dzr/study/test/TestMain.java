@@ -1,5 +1,7 @@
 package com.dzr.study.test;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -49,6 +51,14 @@ public class TestMain {
         map.put("a", "a");
         map.put("b", "b");
         System.err.println(map);
+
+        BigDecimal a = BigDecimal.valueOf(50.16);
+        System.err.println(a.setScale(2, BigDecimal.ROUND_UNNECESSARY));
+
+        System.err.println("删灯笼裤福建省大家好聚精会神".length());
+        System.err.println("删灯笼裤福建省大家好聚精会神".substring(0, 10));
+        System.err.println(BigDecimal.valueOf(2000).divide(BigDecimal.valueOf(174), 2, RoundingMode.HALF_UP));
+
     }
 
 

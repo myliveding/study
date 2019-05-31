@@ -27,3 +27,14 @@ spring:
     maxWait: -1
     maxIdle: 8
     minIdle: 0
+
+  redisson:
+    database: 1
+    host: 47.110.51.80
+    port: 6379
+    passWord:
+    timeout: 15000
+    maxActive: 8
+    maxWait: -1
+    maxIdle: 8
+    minIdle: 0
