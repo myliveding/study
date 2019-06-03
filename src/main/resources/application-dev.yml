@@ -17,24 +17,41 @@ spring:
       maximumPoolSize: 15
 
   redis:
+    # Redisson settings
+    #path to redisson.yaml or redisson.json
+#    redisson:
+#      config: classpath:application-redisson.yml
     database: 1
-    databaseListen: 8
-    host: 47.110.51.80
-    port: 6379
-    passWord:
+    password: xbz_redis@2019
     timeout: 15000
-    maxActive: 8
-    maxWait: -1
-    maxIdle: 8
-    minIdle: 0
+    mode: single
+    #连接池配置
+    pool:
+      max-idle: 16
+      min-idle: 8
+      max-active: 8
+      max-wait: 3000
+      conn-timeout: 3000
+      so-timeout: 3000
+      size: 10
+    #单机配置
+    single:
+      address: 47.110.84.21:6379
+    #集群配置
+    cluster:
+      scan-interval: 2000
+      nodes:
+      read-mode: SLAVE
+      retry-attempts: 3
+      failed-attempts: 3
+      slave-connection-pool-size: 64
+      master-connection-pool-size: 64
+      retry-interval: 1500
+    #哨兵配置
+    sentinel:
+      master: business-master
+      nodes:
+      master-onlyWrite: true
+      fail-max: 3
 
-  redisson:
-    database: 1
-    host: 47.110.51.80
-    port: 6379
-    passWord:
-    timeout: 15000
-    maxActive: 8
-    maxWait: -1
-    maxIdle: 8
-    minIdle: 0
+

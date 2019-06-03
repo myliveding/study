@@ -56,7 +56,7 @@
 		<dependency>
 			<groupId>org.redisson</groupId>
 			<artifactId>redisson</artifactId>
-			<version>3.8.2</version>
+			<version>3.11.0</version>
 		</dependency>
 
 		<!-- 热加载 -->
@@ -111,8 +111,21 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-test</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>5.0.0.BUILD-SNAPSHOT</version>
+		</dependency>
 
-    </dependencies>
+	</dependencies>
 
 	<build>
 		<plugins>

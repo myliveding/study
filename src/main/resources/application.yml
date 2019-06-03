@@ -24,6 +24,6 @@ logging:
     level:
         com.dzr.study: debug
 #    file: /home/wwwlogs/${spring.application.name}.log
-    config: classpath:logback-bak.xml
+    config: classpath:logback.xml
 
 
