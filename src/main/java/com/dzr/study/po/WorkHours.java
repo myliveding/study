@@ -26,4 +26,6 @@ public class WorkHours implements Serializable {
     @ApiModelProperty("结束时间")
     private Integer endTime;
 
+    private String desc;
+
 }

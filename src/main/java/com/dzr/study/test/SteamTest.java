@@ -132,22 +132,39 @@ public class SteamTest {
         List<WorkHours> list = new ArrayList<>();
 
 
-        WorkHours user2 = new WorkHours();
-        user2.setStartTime(1555567200);
-        user2.setEndTime(1555603200 );
-        list.add(user2);
-
         WorkHours user = new WorkHours();
         user.setStartTime(1555545600);
         user.setEndTime(1555561800 );
         list.add(user);
 
-        list.forEach(t -> System.err.println(t.getStartTime()));
-        list.sort(Comparator.comparing(WorkHours::getStartTime));
-        list.forEach(t -> System.err.println("new   " + t.getStartTime()));
-        System.err.println(JSONArray.fromObject(list).toString());
+        WorkHours user1 = new WorkHours();
+        user1.setStartTime(1555567200);
+        user1.setEndTime(1555603200 );
+        list.add(user1);
+
+        WorkHours user2 = new WorkHours();
+        user2.setStartTime(1555567250);
+        user2.setEndTime(1555603200 );
+        list.add(user2);
 
 
+//        list.forEach(t -> System.err.println(t.getStartTime()));
+//        list.sort(Comparator.comparing(WorkHours::getStartTime));
+//        list.forEach(t -> System.err.println("new   " + t.getStartTime()));
+//        System.err.println(JSONArray.fromObject(list).toString());
+//        Stream.of("1,2,,2,6".split(",")).filter(t -> !"".equals(t)).map(Integer::parseInt).collect(Collectors.toList()).forEach(t -> System.err.println(t));
+
+
+        for (WorkHours t : list) {
+            List<WorkHours> tempList = list.stream()
+                    .filter(m -> m.getStartTime().equals(t.getStartTime()))
+                    .collect(Collectors.toList());
+            if (tempList.size() > 1) {
+                t.setDesc("5555");
+            }
+        }
+
+        list.forEach(t -> System.err.println(t.getDesc()));
 
 
     }
