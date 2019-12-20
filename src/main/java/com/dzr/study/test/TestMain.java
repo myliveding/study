@@ -6,10 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneOffset;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -42,22 +39,58 @@ public class TestMain {
     }
 
     public static void main(String[] args) {
-        String aaa = "W19030500016357442,W19030100000524322,W19030100000726372,W19030700012048876,W19031200021956205," +
-                "W19030100000828364,W19030400014754856,W19030100005944682,W19030100000930014,W19030100001231830,W19030100001131780," +
-                "W19030500011847132,W19030500011947181";
-        System.err.println(aaa.split(",").length);
-
-        Map<String, String> map = new HashMap<>();
-        map.put("a", "a");
-        map.put("b", "b");
-        System.err.println(map);
-
-        BigDecimal a = BigDecimal.valueOf(50.16);
-        System.err.println(a.setScale(2, BigDecimal.ROUND_UNNECESSARY));
-
-        System.err.println("删灯笼裤福建省大家好聚精会神".length());
-        System.err.println("删灯笼裤福建省大家好聚精会神".substring(0, 10));
         System.err.println(BigDecimal.valueOf(2000).divide(BigDecimal.valueOf(174), 2, RoundingMode.HALF_UP));
+
+//        List<Integer> list = new ArrayList<>();
+//        for (int i = 0; i < 100; i++) {
+//            list.add(0);
+//            list.add(1);
+//            list.add(2);
+//            list.add(3);
+//            list.add(4);
+//        }
+//
+//        long start1 = System.currentTimeMillis();
+//        Map<String, Long> map = new HashMap<>();
+//        map.put("draftCount", list.stream().filter(t -> t == 0).count());
+//        map.put("withdrawnCount", list.stream().filter(t -> t == 1).count());
+//        map.put("overdueCount", list.stream().filter(t -> t == 2).count());
+//        map.put("closeCount", list.stream().filter(t -> t == 3).count());
+//        map.put("recruitingCount", list.stream().filter(t -> t == 4).count());
+//        System.err.println("11111111111111111111111   " + map.get("draftCount"));
+//        System.err.println("11111111111111111111111   " + (System.currentTimeMillis() - start1));
+//
+//        long start2 = System.currentTimeMillis();
+//        int draftCount = 0;
+//        int withdrawnCount = 0;
+//        int overdueCount = 0;
+//        int closeCount = 0;
+//        int recruitingCount = 0;
+//        for (Integer t : list) {
+//            if(t == 0){
+//                draftCount = draftCount + 1;
+//            }
+//            if(t == 1){
+//                withdrawnCount += 1;
+//            }
+//            if(t == 2){
+//                overdueCount = overdueCount + 1;
+//            }
+//            if(t == 3){
+//                closeCount = closeCount + 1;
+//            }
+//            if(t == 4){
+//                recruitingCount = recruitingCount + 1;
+//            }
+//        }
+//        System.err.println("22222222222222222222222222222222   " + draftCount + " --- "+ withdrawnCount);
+//        System.err.println("22222222222222222222222222222222   " + (System.currentTimeMillis() - start2));
+
+
+        BigDecimal a = new BigDecimal("2.00");
+
+        System.err.println(a.toString());
+
 
     }
 

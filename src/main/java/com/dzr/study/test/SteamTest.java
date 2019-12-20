@@ -32,7 +32,7 @@ public class SteamTest {
             Paper user = new Paper();
             user.setId(i);
             user.setAge(i);
-            user.setAddress("addres" + i);
+            user.setAddress("address：" + i);
             list.add(user);
         }
         return list;
@@ -127,10 +127,11 @@ public class SteamTest {
 
     private static final Set<Integer> SPECIAL_WORK_TIME = Stream.of(8,9,10,0).collect(Collectors.toSet());
 
+
+
+
     public static void main(String[] args) {
-
         List<WorkHours> list = new ArrayList<>();
-
 
         WorkHours user = new WorkHours();
         user.setStartTime(1555545600);
@@ -147,13 +148,11 @@ public class SteamTest {
         user2.setEndTime(1555603200 );
         list.add(user2);
 
-
 //        list.forEach(t -> System.err.println(t.getStartTime()));
 //        list.sort(Comparator.comparing(WorkHours::getStartTime));
 //        list.forEach(t -> System.err.println("new   " + t.getStartTime()));
 //        System.err.println(JSONArray.fromObject(list).toString());
 //        Stream.of("1,2,,2,6".split(",")).filter(t -> !"".equals(t)).map(Integer::parseInt).collect(Collectors.toList()).forEach(t -> System.err.println(t));
-
 
         for (WorkHours t : list) {
             List<WorkHours> tempList = list.stream()
@@ -166,6 +165,10 @@ public class SteamTest {
 
         list.forEach(t -> System.err.println(t.getDesc()));
 
+        Optional<Integer> maxRealPayTime = Stream.of(1,5,8,6,9).max(Integer::compare);
+        System.err.println(maxRealPayTime.get());
+
+        System.err.println("aa ooo   ddd     fgfgf-gg".replace(" ",""));
 
     }
 
