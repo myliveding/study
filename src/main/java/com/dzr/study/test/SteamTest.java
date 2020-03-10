@@ -168,8 +168,10 @@ public class SteamTest {
         Optional<Integer> maxRealPayTime = Stream.of(1,5,8,6,9).max(Integer::compare);
         System.err.println(maxRealPayTime.get());
 
-        System.err.println("aa ooo   ddd     fgfgf-gg".replace(" ",""));
-
+        Map<Integer, Long> map = new HashMap<>();
+        map.put(0, (long)1); map.put(1, (long)1); map.put(2, (long)1);
+        System.err.println(map.values().stream().anyMatch(t -> t > 0));
+        Stream.of(map).forEach(t -> System.err.println(t.values()));
     }
 
 }
