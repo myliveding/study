@@ -31,5 +31,27 @@ public class User {
 
     private Boolean isDelete;
 
+    public User(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
+    public User() {
+    }
+
+    public User(Integer id) {
+        this.id = id;
+    }
+
+    public User(String name, Integer phone) {
+        this.name = name;
+        this.phone = phone;
+    }
+
+
+    public User(Integer id, String name, Integer phone) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+    }
 }

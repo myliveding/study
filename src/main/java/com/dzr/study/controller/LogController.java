@@ -5,6 +5,7 @@ import com.dzr.study.service.LogService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +26,7 @@ public class LogController extends BaseController {
 
 
     @PostMapping(value = "loggerService")
+    @CrossOrigin(origins = "*", maxAge = 3600, methods = {})
     @ApiOperation(value = "测试日志", httpMethod = "POST", produces = "application/json; charset=utf-8")
     public Map<String, Object> loggerService() {
         logService.loggerService();
