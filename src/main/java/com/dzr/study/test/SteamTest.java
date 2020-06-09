@@ -38,6 +38,8 @@ public class SteamTest {
         return list;
     }
 
+
+
     /**
      * 创建steam流
      */
@@ -148,30 +150,37 @@ public class SteamTest {
         user2.setEndTime(1555603200 );
         list.add(user2);
 
+        Map<String, String> map = new HashMap<>();
+        System.err.println(JSONObject.fromObject(map));
+        System.err.println(JSONObject.fromObject(map).toString());
+//        System.err.println(JSONArray.fromObject(list));
+//        System.err.println(JSONArray.fromObject(list).toString());
+
+
 //        list.forEach(t -> System.err.println(t.getStartTime()));
 //        list.sort(Comparator.comparing(WorkHours::getStartTime));
 //        list.forEach(t -> System.err.println("new   " + t.getStartTime()));
 //        System.err.println(JSONArray.fromObject(list).toString());
 //        Stream.of("1,2,,2,6".split(",")).filter(t -> !"".equals(t)).map(Integer::parseInt).collect(Collectors.toList()).forEach(t -> System.err.println(t));
 
-        for (WorkHours t : list) {
-            List<WorkHours> tempList = list.stream()
-                    .filter(m -> m.getStartTime().equals(t.getStartTime()))
-                    .collect(Collectors.toList());
-            if (tempList.size() > 1) {
-                t.setDesc("5555");
-            }
-        }
-
-        list.forEach(t -> System.err.println(t.getDesc()));
-
-        Optional<Integer> maxRealPayTime = Stream.of(1,5,8,6,9).max(Integer::compare);
-        System.err.println(maxRealPayTime.get());
-
-        Map<Integer, Long> map = new HashMap<>();
-        map.put(0, (long)1); map.put(1, (long)1); map.put(2, (long)1);
-        System.err.println(map.values().stream().anyMatch(t -> t > 0));
-        Stream.of(map).forEach(t -> System.err.println(t.values()));
+//        for (WorkHours t : list) {
+//            List<WorkHours> tempList = list.stream()
+//                    .filter(m -> m.getStartTime().equals(t.getStartTime()))
+//                    .collect(Collectors.toList());
+//            if (tempList.size() > 1) {
+//                t.setDesc("5555");
+//            }
+//        }
+//
+//        list.forEach(t -> System.err.println(t.getDesc()));
+//
+//        Optional<Integer> maxRealPayTime = Stream.of(1,5,8,6,9).max(Integer::compare);
+//        System.err.println(maxRealPayTime.get());
+//
+//        Map<Integer, Long> map = new HashMap<>();
+//        map.put(0, (long)1); map.put(1, (long)1); map.put(2, (long)1);
+//        System.err.println(map.values().stream().anyMatch(t -> t > 0));
+//        Stream.of(map).forEach(t -> System.err.println(t.values()));
     }
 
 }

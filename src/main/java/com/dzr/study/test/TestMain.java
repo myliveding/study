@@ -1,7 +1,13 @@
 package com.dzr.study.test;
 
+import org.apache.commons.codec.binary.Hex;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -38,8 +44,8 @@ public class TestMain {
         return parseTimeToInt(LocalDateTime.of(LocalDate.now(), LocalTime.MAX));
     }
 
-    public static void main(String[] args) {
-        System.err.println(BigDecimal.valueOf(2000).divide(BigDecimal.valueOf(174), 2, RoundingMode.HALF_UP));
+    public static void main(String[] args) throws Exception {
+//        System.err.println(BigDecimal.valueOf(2000).divide(BigDecimal.valueOf(174), 2, RoundingMode.HALF_UP));
 
 //        List<Integer> list = new ArrayList<>();
 //        for (int i = 0; i < 100; i++) {
@@ -86,15 +92,41 @@ public class TestMain {
 //        System.err.println("22222222222222222222222222222222   " + draftCount + " --- "+ withdrawnCount);
 //        System.err.println("22222222222222222222222222222222   " + (System.currentTimeMillis() - start2));
 
-
-        BigDecimal a = new BigDecimal("2.00");
-
-        System.err.println(a.toString());
-
-
-
+//        BigDecimal a = new BigDecimal("2.00");
+//        System.err.println(a.toString());
+//        StringBuilder d = new StringBuilder();
+//        System.err.println(d.toString().equals(""));
+//        System.err.println(d.substring(0, d.length() - 1).toString());
+// dbf2e870f5267482650b76dc4d92e4d5
+//        System.err.println(md5("dbf2e870f5267482650b76dc4d92e4d5"));
+        //19476b460cac0494b3a71902d4bd6425
+        String dateStr="2020-06-07 12:13:34";
+        String pattern="yyyy-MM-dd HH:mm:ss";
+        DateFormat dateFormat= new SimpleDateFormat(pattern);
+        Date date=dateFormat.parse(dateStr);
+        Calendar calendar=Calendar.getInstance();
+        calendar.setTime(date);
+        System.err.println(calendar);
 
     }
+
+    /**
+     * md5加密
+     * @param password 原始密码
+     */
+    public static String md5(String password) {
+        try {
+            MessageDigest m = MessageDigest.getInstance("MD5");
+            byte[] passwordBytes = m.digest(password.getBytes());
+            String passwordHash = new String(Hex.encodeHex(passwordBytes));
+            byte[] md = m.digest(passwordHash.getBytes());
+            return new String(Hex.encodeHex(md));
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 
 }
