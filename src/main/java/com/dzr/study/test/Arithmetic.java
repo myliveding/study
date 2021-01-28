@@ -1,7 +1,5 @@
 package com.dzr.study.test;
 
-import netscape.javascript.JSException;
-import sun.plugin.javascript.navig.Array;
 
 import java.util.ArrayList;
 import java.util.List;

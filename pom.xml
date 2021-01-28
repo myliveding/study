@@ -138,6 +138,17 @@
 
 	<repositories>
 		<repository>
+			<id>nexus</id>
+			<name>nexus</name>
+			<url>https://repo.rdc.aliyun.com/repository/44174-release-GnFs8t/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
 			<id>spring-snapshots</id>
 			<name>Spring Snapshots</name>
 			<url>https://repo.spring.io/snapshot</url>
