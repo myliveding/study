@@ -1,5 +1,6 @@
 package com.dzr.study.test;
 
+import com.dzr.study.po.Dingding;
 import com.dzr.study.po.Paper;
 import com.dzr.study.po.WorkHours;
 import net.sf.json.JSONArray;
@@ -129,10 +130,44 @@ public class SteamTest {
 
     private static final Set<Integer> SPECIAL_WORK_TIME = Stream.of(8,9,10,0).collect(Collectors.toSet());
 
+    public static void testMap(){
+        Dingding dingding = new Dingding();
+        dingding.setUserId(1);
 
+        List<Dingding.Name> list = new ArrayList<>();
+        Dingding.Name name1 = new Dingding.Name();
+        name1.setFieldCode("sys00-dept");
+        name1.setFieldName("lalala");
+        list.add(name1);
+
+        Dingding.Name name2 = new Dingding.Name();
+        name2.setFieldCode("sys00-dept");
+        name2.setFieldName("yiyiyi");
+        list.add(name2);
+
+        Dingding.Name name3 = new Dingding.Name();
+        name3.setFieldCode("sys00-deptIds");
+        name3.setFieldName("11111");
+        list.add(name3);
+
+        Dingding.Name name4 = new Dingding.Name();
+        name4.setFieldCode("sys00-deptIds");
+        name4.setFieldName("2222");
+        list.add(name4);
+
+
+        dingding.setFieldList(list);
+
+        Map<String, String> fieldMap = dingding.getFieldList().stream().collect(Collectors.toMap(c -> c.getFieldCode(), c -> c.getFieldName()));
+        String departmentName = fieldMap.get("sys00-dept");
+        String departmentId = fieldMap.get("sys00-deptIds");
+        System.err.println("departmentName--" + departmentName + "--departmentId---" + departmentId);
+    }
 
 
     public static void main(String[] args) {
+        testMap();
+
         List<WorkHours> list = new ArrayList<>();
 
         WorkHours user = new WorkHours();
@@ -181,6 +216,8 @@ public class SteamTest {
 //        map.put(0, (long)1); map.put(1, (long)1); map.put(2, (long)1);
 //        System.err.println(map.values().stream().anyMatch(t -> t > 0));
 //        Stream.of(map).forEach(t -> System.err.println(t.values()));
+
+
     }
 
 }
