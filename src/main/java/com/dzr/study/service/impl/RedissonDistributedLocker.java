@@ -3,9 +3,9 @@ package com.dzr.study.service.impl;
 import com.dzr.study.service.DistributedLocker;
 import org.redisson.api.*;
 import org.redisson.config.Config;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -18,110 +18,108 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class RedissonDistributedLocker implements DistributedLocker {
 
-    @Autowired
+    @Resource
     private RedissonClient redissonClient;
 
     public void getRedissonClient() throws IOException {
-                 Config config = redissonClient.getConfig();
-                 System.out.println(config.toJSON().toString());
-             }
+        Config config = redissonClient.getConfig();
+        System.out.println(config.toJSON());
+    }
 
-              /**`
-        * 获取字符串对象
-        *
-        * @param objectName
-        * @return
-        */
-              public <T> RBucket<T> getRBucket(String objectName) {
-                 RBucket<T> bucket = redissonClient.getBucket(objectName);
-                 return bucket;
-             }
-
-              /**
-        * 获取Map对象
-        *
-        * @param objectName
-        * @return
-        */
-              public <K, V> RMap<K, V> getRMap(String objectName) {
-                 RMap<K, V> map = redissonClient.getMap(objectName);
-                 return map;
-             }
-
-              /**
-        * 获取有序集合
-        *
-        * @param objectName
-        * @return
-        */
-              public <V> RSortedSet<V> getRSortedSet(String objectName) {
-                 RSortedSet<V> sortedSet = redissonClient.getSortedSet(objectName);
-                 return sortedSet;
-             }
-
-              /**
-        * 获取集合
-        *
-        * @param objectName
-        * @return
-        */
-              public <V> RSet<V> getRSet(String objectName) {
-                 RSet<V> rSet = redissonClient.getSet(objectName);
-                 return rSet;
-             }
-
-              /**
-        * 获取列表
-        *
-        * @param objectName
-        * @return
-        */
-              public <V> RList<V> getRList(String objectName) {
-                 RList<V> rList = redissonClient.getList(objectName);
-                 return rList;
-             }
-
-              /**
-        * 获取队列
-        *
-        * @param objectName
-        * @return
-        */
-              public <V> RQueue<V> getRQueue(String objectName) {
-                 RQueue<V> rQueue = redissonClient.getQueue(objectName);
-                 return rQueue;
-             }
-
-              /**
-        * 获取双端队列
-        *
-        * @param objectName
-        * @return
-        */
-              public <V> RDeque<V> getRDeque(String objectName) {
-                 RDeque<V> rDeque = redissonClient.getDeque(objectName);
-                 return rDeque;
-             }
-
-
-
-             /**
-     * 获取原子数
-      *
-      * @param objectName
+    /**
+     * 获取字符串对象
+     * @param objectName
      * @return
      */
-          public RAtomicLong getRAtomicLong(String objectName) {
-               RAtomicLong rAtomicLong = redissonClient.getAtomicLong(objectName);
-               return rAtomicLong;
-          }
+    public <T> RBucket<T> getRBucket(String objectName) {
+        RBucket<T> bucket = redissonClient.getBucket(objectName);
+        return bucket;
+    }
 
-             /**
-       * 获取记数锁
-       *
-       * @param objectName
-       * @return
-       */
+    /**
+     * 获取Map对象
+     *
+     * @param objectName
+     * @return
+     */
+    public <K, V> RMap<K, V> getRMap(String objectName) {
+        RMap<K, V> map = redissonClient.getMap(objectName);
+        return map;
+    }
+
+    /**
+     * 获取有序集合
+     * @param objectName
+     * @param <V>
+     * @return
+     */
+    public <V> RSortedSet<V> getRSortedSet(String objectName) {
+        RSortedSet<V> sortedSet = redissonClient.getSortedSet(objectName);
+        return sortedSet;
+    }
+
+    /**
+     * 获取集合
+     * @param objectName
+     * @param <V>
+     * @return
+     */
+    public <V> RSet<V> getRSet(String objectName) {
+        RSet<V> rSet = redissonClient.getSet(objectName);
+        return rSet;
+    }
+
+    /**
+     * 获取列表
+     * @param objectName
+     * @param <V>
+     * @return
+     */
+    public <V> RList<V> getRList(String objectName) {
+        RList<V> rList = redissonClient.getList(objectName);
+        return rList;
+    }
+
+
+
+    /**
+     * 获取队列
+     * @param objectName
+     * @param <V>
+     * @return
+     */
+    public <V> RQueue<V> getRQueue(String objectName) {
+        RQueue<V> rQueue = redissonClient.getQueue(objectName);
+        return rQueue;
+    }
+
+    /**
+     * 获取双端队列
+     * @param objectName
+     * @param <V>
+     * @return
+     */
+    public <V> RDeque<V> getRDeque(String objectName) {
+        RDeque<V> rDeque = redissonClient.getDeque(objectName);
+        return rDeque;
+    }
+
+
+    /**
+     * 获取原子数
+     * @param objectName
+     * @return
+     */
+    public RAtomicLong getRAtomicLong(String objectName) {
+       RAtomicLong rAtomicLong = redissonClient.getAtomicLong(objectName);
+       return rAtomicLong;
+    }
+
+    /**
+     * 获取记数锁
+     * @param objectName
+     * @return
+     */
     public RCountDownLatch getRCountDownLatch(String objectName) {
         RCountDownLatch rCountDownLatch = redissonClient.getCountDownLatch(objectName);
         return rCountDownLatch;
@@ -198,6 +196,10 @@ public class RedissonDistributedLocker implements DistributedLocker {
     @Override
     public void unlock(RLock lock) {
         lock.unlock();
+    }
+
+    public static void main(String[] args) {
+        System.err.println();
     }
 
 }
