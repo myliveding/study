@@ -1,6 +1,6 @@
 package com.dzr.study.test;
 
-import com.dzr.study.service.impl.RedissonServiceImpl;
+import com.dzr.structure.service.impl.RedissonServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.dzr.study.test;
 
-import com.dzr.study.po.User;
+import com.dzr.javabean.User;
 
 import java.util.ArrayList;
 import java.util.function.*;

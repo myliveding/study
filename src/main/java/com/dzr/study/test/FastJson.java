@@ -3,8 +3,8 @@ package com.dzr.study.test;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.dzr.study.framework.exception.ApiException;
-import com.dzr.study.po.User;
+import com.dzr.framework.exception.ApiException;
+import com.dzr.javabean.User;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;

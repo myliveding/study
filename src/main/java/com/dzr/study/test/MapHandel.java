@@ -1,6 +1,6 @@
 package com.dzr.study.test;
 
-import com.dzr.study.po.Paper;
+import com.dzr.javabean.Paper;
 
 import java.util.HashMap;
 import java.util.Iterator;

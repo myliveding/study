@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dzr.study.mapper.UserMapper">
+<mapper namespace="com.dzr.structure.mapper.UserMapper">
 
-    <resultMap id="BaseResultMap" type="com.dzr.study.po.User">
+    <resultMap id="BaseResultMap" type="com.dzr.javabean.User">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="phone" property="phone"/>
@@ -34,7 +34,7 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
 
-    <insert id="insert" parameterType="com.dzr.study.po.User">
+    <insert id="insert" parameterType="com.dzr.javabean.User">
     insert into user (id, name, phone, 
       email, openid, neckname, 
       sex, headimgurl, subscribe, 
@@ -47,7 +47,7 @@
       )
   </insert>
 
-    <insert id="insertSelective" parameterType="com.dzr.study.po.User">
+    <insert id="insertSelective" parameterType="com.dzr.javabean.User">
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -126,7 +126,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.dzr.study.po.User">
+    <update id="updateByPrimaryKeySelective" parameterType="com.dzr.javabean.User">
         update user
         <set>
             <if test="name != null">
@@ -165,7 +165,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.dzr.study.po.User">
+    <update id="updateByPrimaryKey" parameterType="com.dzr.javabean.User">
     update user
     set name = #{name,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=INTEGER},

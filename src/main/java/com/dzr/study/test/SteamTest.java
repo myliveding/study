@@ -1,9 +1,8 @@
 package com.dzr.study.test;
 
-import com.dzr.study.po.Dingding;
-import com.dzr.study.po.Paper;
-import com.dzr.study.po.WorkHours;
-import net.sf.json.JSONArray;
+import com.dzr.javabean.Dingding;
+import com.dzr.javabean.Paper;
+import com.dzr.javabean.WorkHours;
 import net.sf.json.JSONObject;
 
 import java.util.*;
